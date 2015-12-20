@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="128px" height="93px" viewBox="0 0 128 93" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>clouds</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Cloud" sketch:type="MSLayerGroup" fill="#FFFFFF">
+            <g id="Layer_1" sketch:type="MSShapeGroup">
+                <path d="M46.5,93 C20.8200713,93 0,72.1828354 0,46.5 C0,20.8171646 20.8200713,0 46.5,0 C63.9513064,0 79.138361,9.62670334 87.0908551,23.8429491 C89.0208464,23.5145018 90.9799037,23.2470934 93,23.2470934 C112.262127,23.2470934 127.876453,38.8643268 127.876453,58.1264533 C127.876453,77.3827666 112.262127,93 93,93 C84.934148,93 55.7953494,93 46.5,93 L46.5,93 Z M93,81.3735467 C105.841418,81.3735467 116.252907,70.9620578 116.252907,58.1264533 C116.252907,45.2850356 105.841418,34.8735467 93,34.8735467 C88.3494187,34.8735467 84.0418177,36.2716277 80.4056445,38.6259845 C76.8276035,23.1744281 63.0415364,11.6235467 46.5,11.6235467 C27.2407801,11.6235467 11.6264533,27.2378735 11.6264533,46.5 C11.6264533,65.7592199 27.2407801,81.3735467 46.5,81.3735467 L93,81.3735467 L93,81.3735467 Z" id="clouds"></path>
+            </g>
+        </g>
+    </g>
+</svg>

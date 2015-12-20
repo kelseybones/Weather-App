@@ -1,0 +1,102 @@
+@font-face {
+    font-family: BebasNeueRegular;
+    src: url('../fonts/BebasNeue Regular.otf');
+}
+
+@font-face {
+    font-family: MyriadProRegular;
+    src: url('../fonts/MyriadPro-Regular.otf');
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	}
+
+
+/* Basic body styling. */
+
+body {
+    height: cover;
+    display: block
+	color: white;
+	background: -webkit-linear-gradient(left top, #001422, #054a5c);
+	padding: 2em;
+	font: 62.5% "Avenir";
+	}
+
+/* The CSS for the form. */
+
+#locationForm {
+	width: 90%;
+	height: 14em;
+	max-width: 60em;
+    float: left;
+    font-family: MyriadProRegular;
+	}
+
+#locationForm button {
+    float: left;
+    vertical-align: middle;
+	width: 6%;
+	cursor: pointer;
+	padding: 0.25em;
+	color: white;
+	font-size: 45%;
+	font-weight: bold;
+	text-align: center;
+	box-sizing: border-box;
+	background: transparent;
+	border: none;
+	border-radius: 6px;
+	outline: none;
+	}
+
+#locationForm label {
+	display: block;
+	font-size: 4em;
+	font-weight: bold;
+	}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;   
+}
+
+#locationForm input[type="text"] {
+	display: block;
+	width: 30%;
+    padding-top: 0.3em;
+    padding-left: 0.5em;
+	font-size: 45%;
+    background-color: transparent;
+    border: none;
+}
+
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+.error {
+	border: 0.15em solid rgba(204, 51, 51, 0.75) !important;	
+	}
+
+#weather {
+	display: none;
+	width: 90%;
+	max-width: 30em;
+	margin: 16em auto;
+    margin-bottom: 0;
+	text-align: center;
+	}
+
+p {
+    width: 30%;
+    font-family: BebasNeueRegular;
+    color: white;
+	margin-top: 1em;
+    margin-bottom: 0;
+	font-size: 10em;
+	font-weight: bold;
+    float: left;
+	}
