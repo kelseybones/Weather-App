@@ -64,6 +64,7 @@ body {
     }
 
 #locationForm input[type="text"] {
+    color: white;
     display: block;
     width: 30%;
     padding-top: 0.3em;
