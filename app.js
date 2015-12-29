@@ -32,10 +32,12 @@ function getWeather(location){
 			 
 			json = JSON.parse(ajax.responseText);
 
-//			document.getElementById("locationForm").style.display = "none";
             document.getElementById("locationForm").classList.remove("centred");
             document.getElementById("locationForm").classList.add("top-left");
-			document.getElementById("weather").style.display = "block";
+            
+//			document.getElementById("weather").style.display = "block";
+            document.getElementById("weather").classList.remove("hide");
+            document.getElementById("weather").classList.add("show");
 			
 			if (json != undefined){
 				
@@ -131,7 +133,7 @@ function setIconAndDescription(weather, location){
     };
     
     function setTextBoxPlaceholder() {
-        this.placeholder = 'e.g. Belfast';
+        this.placeholder = 'Belfast';
     }
     
     locationElement.onfocus = clearTextBoxPlaceholder;

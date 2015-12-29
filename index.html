@@ -9,15 +9,18 @@
 <section id="locationForm" class="centred">
   <label>
     <!--<p class="question">Where are you?</p>-->
-    <button id="btnGo"><img src="images/search.svg" alt="Search" height="40em"></button>
-    <input id="location" type="text" placeholder="eg. Belfast" />
+    <button id="btnGo"><img src="images/search.svg" alt="Search"></button>
+    <input id="location" type="text" placeholder="Belfast" />
   </label>
 </section>
 
-<section id="weather">
-  <img src="images/default.svg" width="250px" id="weatherIcon"/>
+<section id="weather" class="hide">
+    <div class="icon">
+      <img src="images/default.svg" width="250px" id="weatherIcon"/>
+    </div>
+    <p id="description" class="quote"></p>
 </section>
-<p id="description"></p>
+
 <img class="belfast" src="images/Belfast.png" width="70%">
 
 <script src="app.js"></script>

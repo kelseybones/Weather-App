@@ -38,11 +38,12 @@ img.belfast {
 
 #locationForm {
     position: absolute; 
+    z-index: 100;
     width: 90%;
     height: 14em;
     max-width: 60em;
     font-family: MyriadProRegular;
-    transition: 0.4s ease-in-out;
+    transition: 0.3s ease-out;
     
     &.top-left {
         top: 5%;
@@ -80,16 +81,14 @@ img.belfast {
     input[type="text"] {
         color: white;
         display: block;
-        width: 30%;
-        padding-top: 0.3em;
-        padding-left: 0.5em;
-        font-size: 45%;
+        font-size: 60%;
+        padding-top: 0.1em;
         background-color: transparent;
         border: none;
     }
     
     ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-        color: white;   
+        color: rgba(255,255,255,0.6);   
     }
 }
 
@@ -102,20 +101,35 @@ textarea:focus, input:focus{
 }
 
 #weather {
-    display: none;
-    width: 90%;
-    max-width: 30em;
-    margin: 16em auto;
-    margin-bottom: 0;
-    text-align: center;
+    transition: all 0.3s ease-in 0.1s;
+    
+    &.show {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+    &.hide {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    
+    .icon {
+        width: 90%;
+        max-width: 30em;
+        margin: 16em auto;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    
+    p.quote {
+        width: 30%;
+        font-family: BebasNeueRegular;
+        color: white;
+        margin-bottom: 0;
+        font-size: 10em;
+        font-weight: bold;
+        float: left;
+    }
 }
 
-p {
-    width: 30%;
-    font-family: BebasNeueRegular;
-    color: white;
-    margin-bottom: 0;
-    font-size: 10em;
-    font-weight: bold;
-    float: left;
-}
+
