@@ -37,7 +37,7 @@ img.belfast {
 }
 #locationForm.top-left {
   top: 5%;
-  left: 5%;
+  left: 20px;
   font-size: 4em;
 }
 #locationForm.centred {
