@@ -30,39 +30,33 @@ img.belfast {
   position: absolute;
   z-index: 100;
   width: 90%;
-  height: 14em;
   max-width: 60em;
   font-family: MyriadProRegular;
+  font-size: 4em;
   transition: 0.3s ease-out;
 }
 #locationForm.top-left {
   top: 5%;
   left: 5%;
+  font-size: 4em;
 }
 #locationForm.centred {
   top: 33%;
   left: 45%;
+  font-size: 8em;
 }
 #locationForm button {
   float: left;
   vertical-align: middle;
-  width: 6%;
+  width: 2.3em;
   cursor: pointer;
   padding: 0.25em;
-  color: white;
   font-size: 45%;
-  font-weight: bold;
-  text-align: center;
   box-sizing: border-box;
   background: transparent;
   border: none;
   border-radius: 6px;
   outline: none;
-}
-#locationForm label {
-  display: block;
-  font-size: 4em;
-  font-weight: bold;
 }
 #locationForm input[type="text"] {
   color: white;
