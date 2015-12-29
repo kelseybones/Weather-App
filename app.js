@@ -33,6 +33,8 @@ function getWeather(location){
 			json = JSON.parse(ajax.responseText);
 
 //			document.getElementById("locationForm").style.display = "none";
+            document.getElementById("locationForm").classList.remove("centred");
+            document.getElementById("locationForm").classList.add("top-left");
 			document.getElementById("weather").style.display = "block";
 			
 			if (json != undefined){
