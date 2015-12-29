@@ -68,46 +68,55 @@ function setIconAndDescription(weather, location){
         case "clear sky":
             icon = "clear.svg";
             description = "It’s a qwer day out there.";
-            backgroundColour = "-webkit-linear-gradient(left top, #001422, #054a5c);";
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#ff3937), to(#ffb554))";
             break;
         case "few clouds":
             icon = "few-clouds.svg";
             description = "Aye she’s no a bad day";
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#ffa538), to(#fff055))";
             break;
         case "scattered clouds":
         case "broken clouds":
         case "clouds":
             icon = "clouds.svg";
             description = "She’s a dull oul’ day";
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#008cae), to(#1acdd1))";
             break;
         case "rain":
         case "light rain":
         case "shower rain":
             icon = "rain.svg";
             description = "It’s lashing down."
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#1e2225), to(#026bc4))";
             break;
         case "thunderstorm":
             icon = "thunder.svg";
             description = "It’s a wile day."
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#1e2225), to(#026bc4))";
             break;
         case "snow":
             icon = "snow.svg";
             description = "Ye wouldne be long gettin’ frostbit."
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#06282f), to(#007273))";
             break;
         case "mist":
             icon = "mist.svg";
             description = "She’s no great.";
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#717171), to(#b3b3b3))";
             break;
         default:
             icon = "default.svg";
             description = "Oops, I couldn't find the weather in " + location;
-            backgroundColour = "-webkit-linear-gradient(left top, #001422, #054a5c);";
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#001422), to(#054a5c))";
             break;
     }
 
-	document.getElementById("weatherIcon").src = "images/" + icon;
-	document.getElementById("description").innerHTML = description;
-//    document.body.style.backgroundColor = backgroundColour;
+	$("#weatherIcon").attr("src", "images/" + icon);
+	$("#description").text(description);
+    $("body").css({
+        background: backgroundColour
+    });
+
 }
 
 (function() {
@@ -115,8 +124,7 @@ function setIconAndDescription(weather, location){
 	document.getElementById("btnGo").onclick = getLocation;
     
     var locationElement = document.getElementById("location")
-       
-    
+
     function clearTextBoxPlaceholder() {
         this.placeholder = '';
     };
