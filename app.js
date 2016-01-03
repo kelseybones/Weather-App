@@ -1,3 +1,21 @@
+//http://www.w3schools.com/js/js_cookies.asp
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
 function getLocation(){
 	
 	var location = document.getElementById("location").value;
@@ -43,7 +61,7 @@ function getWeather(location){
 				
 				var weather = json.weather[0].main
 				setIconAndDescription(weather, location)
-				
+				setCookie("lastLocation", location, 1)
 			}	
 			else {
 				
@@ -86,7 +104,7 @@ function setIconAndDescription(weather, location){
             icon = "rain.svg";
             description = "It’s a bit fresh out."
             backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#1e2225), to(#026bc4))";
-            break
+            break 
         case "rain":
         case "light rain":
         case "shower rain":
@@ -132,6 +150,7 @@ function setIconAndDescription(weather, location){
 
     function clearTextBoxPlaceholder() {
         this.placeholder = '';
+        this.value = '';
     };
     
     function setTextBoxPlaceholder() {
@@ -140,7 +159,13 @@ function setIconAndDescription(weather, location){
     
     locationElement.onfocus = clearTextBoxPlaceholder;
     locationElement.onblur = setTextBoxPlaceholder;
-
+    
+    var lastLocation = getCookie("lastLocation");
+    if (lastLocation != "") {
+        getWeather(lastLocation);
+        lastLocation = lastLocation.replace("%20", " ");
+        document.getElementById("location").value = lastLocation;
+    }
 
 	document.getElementById("location").onkeypress = function(key){
 		
