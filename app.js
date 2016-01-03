@@ -82,6 +82,11 @@ function setIconAndDescription(weather, location){
             description = "She’s a dull oul’ day";
             backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#008cae), to(#1acdd1))";
             break;
+        case "drizzle":
+            icon = "rain.svg";
+            description = "It’s a bit fresh out."
+            backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#1e2225), to(#026bc4))";
+            break
         case "rain":
         case "light rain":
         case "shower rain":
