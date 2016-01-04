@@ -204,9 +204,12 @@ span:focus {
 /* ----------- iPhone 6 ----------- */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   #locationForm.centred {
-    left: 10%;
+    left: 8%;
   }
-  #locationForm #location {
+  #locationForm.centred #location {
+    width: 3em;
+  }
+  #locationForm.top-left #location {
     width: 7em;
   }
   #weather {
