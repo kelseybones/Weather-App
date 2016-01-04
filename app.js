@@ -15,72 +15,51 @@ function getCookie(cname) {
     }
     return "";
 }
-
 function getLocation(){
-	
 	var location = document.getElementById("location").value;
-	
+    document.activeElement.blur();
 	location = location.replace(" ", "%20");
-	
 	if (location == ""){
-
 		document.getElementById("location").classList.add("error");
-		
 	}
-	else {		
+	else {
 		document.getElementById("location").classList.remove("error");
 		getWeather(location);
-		
 	}
 }
-
 function getWeather(location){
-
 	var ajax = new XMLHttpRequest();
-	
-	var json; 
-
-	var apiKEY = "3521a940efd69dc5b6f3dd982d18c618";	
-	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + location + " ,uk&appid=" + apiKEY;
-	ajax.open("GET", url, true);	
-	ajax.send();	
+	var json;
+	var apiKEY = "3521a940efd69dc5b6f3dd982d18c618";
+	var url = "http://api.openweathermap.org/data/2.5/weather?q=" + location + " ,uk&appid=" + apiKEY + "&units=metric";
+	ajax.open("GET", url, true);
+	ajax.send();
 	ajax.onreadystatechange = function(){
-
 		if (ajax.readyState == 4 && ajax.status == 200){
-			 
 			json = JSON.parse(ajax.responseText);
-
             document.getElementById("locationForm").classList.remove("centred");
             document.getElementById("locationForm").classList.add("top-left");
-            
 //			document.getElementById("weather").style.display = "block";
             document.getElementById("weather").classList.remove("hide");
             document.getElementById("weather").classList.add("show");
-			
 			if (json != undefined){
-				
 				var weather = json.weather[0].main
-				setIconAndDescription(weather, location)
-				setCookie("lastLocation", location, 1)
-			}	
+                var temperature = json.main.temp;
+				setIconAndDescription(weather, location, temperature)
+                setCookie("lastLocation", location, 1);
+			}
 			else {
-				
 				description = "Oops, I couldn't find the weather in " + location;
 				document.getElementById("description").innerHTML = description;
-		
 			}
 		}
 	}
 }
-
-function setIconAndDescription(weather, location){
-
+function setIconAndDescription(weather, location, temperature){
 	var icon;
 	var description;
     var backgroundColour;
-	
 	weather = weather.toLowerCase();
-    
     switch(weather) {
         case "clear":
         case "clear sky":
@@ -133,47 +112,36 @@ function setIconAndDescription(weather, location){
             backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#001422), to(#054a5c))";
             break;
     }
-
 	$("#weatherIcon").attr("src", "images/" + icon);
 	$("#description").text(description);
+    $('#temperature').text(temperature + "°");
     $("body").css({
         background: backgroundColour
     });
-
 }
-
 (function() {
-
 	document.getElementById("btnGo").onclick = getLocation;
-    
     var locationElement = document.getElementById("location")
-
     function clearTextBoxPlaceholder() {
         this.placeholder = '';
         this.value = '';
     };
-    
     function setTextBoxPlaceholder() {
         this.placeholder = 'Belfast';
     }
-    
     locationElement.onfocus = clearTextBoxPlaceholder;
     locationElement.onblur = setTextBoxPlaceholder;
-    
     var lastLocation = getCookie("lastLocation");
     if (lastLocation != "") {
         getWeather(lastLocation);
         lastLocation = lastLocation.replace("%20", " ");
         document.getElementById("location").value = lastLocation;
     }
-
 	document.getElementById("location").onkeypress = function(key){
-		
 		if (key.keyCode == "13"){
-			
 			getLocation();
-			
+            //Stop enter making a new line
+			return false;
 		}
 	}
-
 })();

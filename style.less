@@ -1,79 +1,65 @@
 // out: style.css, compress: false, sourceMap: true
-
 @font-face {
     font-family: BebasNeueRegular;
     src: url('fonts/BebasNeue Regular.otf');
 }
-
 @font-face {
     font-family: MyriadProRegular;
     src: url('fonts/MyriadPro-Regular.otf');
 }
-
-
 * {
     margin: 0;
     padding: 0;
 }
-
-
 /* Basic body styling. */
-
+html {
+    height: 100%;
+}
 body {
-    height: 100vh;
-    display: block
     color: white;
     background: -webkit-linear-gradient(left top, #001422, #054a5c);
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding: 2em;
     font: 62.5% "Avenir";
+    overflow: hidden;
 }
-
 img.belfast {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
-
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
 }
-
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
 /* Firefox < 16 */
 @-moz-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
 /* Internet Explorer */
 @-ms-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
 /* Opera < 12.1 */
 @-o-keyframes fadein {
     from { opacity: 0; }
 }
-
 /* The CSS for the form. */
-
 #locationForm {
-    position: absolute; 
+    position: absolute;
     z-index: 100;
     width: 90%;
     max-width: 60em;
@@ -85,20 +71,16 @@ img.belfast {
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
-    
     &.top-left {
         top: 5%;
         left: 20px;
         font-size: 4em;
     }
-    
     &.centred {
         top: 33%;
         left: 40%;
-        
         font-size: 8em;
     }
-    
     button {
         float: left;
         vertical-align: middle;
@@ -111,8 +93,8 @@ img.belfast {
         border-radius: 6px;
         outline: none;
     }
-    
     input[type="text"] {
+    // #location {
         color: white;
         display: inline-block;
         margin-left: 10px;
@@ -121,50 +103,80 @@ img.belfast {
         background-color: transparent;
         border: none;
     }
-    
+    // #location:empty:before {
+    //     content:"Belfast";
+    //     color: rgba(255,255,255,0.6);
+    // }
     ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-        color: rgba(255,255,255,0.6);   
+        color: rgba(255,255,255,0.6);
     }
 }
-
-textarea:focus, input:focus{
+textarea:focus, input:focus, span:focus {
     outline: 0;
 }
-
 .error {
-    border: 0.15em solid rgba(204, 51, 51, 0.75) !important;	
+    border: 0.15em solid rgba(204, 51, 51, 0.75) !important;
 }
-
 #weather {
     transition: all 0.3s ease-in 0.1s;
-    
     &.show {
         opacity: 1;
         transform: translateY(0px);
     }
-    
     &.hide {
         opacity: 0;
         transform: translateY(10px);
     }
-    
+    #temperature {
+        position: absolute;
+        top: -10%;
+        right: 20px;
+        font-size: 4em;
+        opacity: 0.5;
+    }
     .icon {
         width: 90%;
         max-width: 30em;
-        margin: 16em auto;
-        margin-bottom: 0;
+        margin: 10% auto;
+        margin-bottom: 8%;
         text-align: center;
     }
-    
     p.quote {
         width: 30%;
         font-family: BebasNeueRegular;
         color: white;
         margin-bottom: 0;
-        font-size: 10em;
+        font-size: 8em;
         font-weight: bold;
-        float: left;
     }
 }
-
-
+/* ----------- iPhone 6 ----------- */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+      #locationForm {
+          &.centred {
+              left: 10%;
+          }
+          &.top-left {
+          }
+          #location {
+              width: 7em;
+          }
+      }
+      #weather {
+          margin-top: 30%;
+          #temperature {
+              right: -5px;
+          }
+          .icon {
+            //   margin: 8em auto;
+          }
+          p.quote {
+              font-size: 6em;
+              width: 55%;
+          }
+      }
+}

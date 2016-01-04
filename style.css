@@ -12,18 +12,20 @@
   padding: 0;
 }
 /* Basic body styling. */
+html {
+  height: 100%;
+}
 body {
-  height: 100vh;
-  display: block
-    color: white;
+  color: white;
   background: -webkit-linear-gradient(left top, #001422, #054a5c);
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 2em;
   font: 62.5% "Avenir";
+  overflow: hidden;
 }
 img.belfast {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   -webkit-animation: fadein 2s;
@@ -132,7 +134,8 @@ img.belfast {
   color: rgba(255, 255, 255, 0.6);
 }
 textarea:focus,
-input:focus {
+input:focus,
+span:focus {
   outline: 0;
 }
 .error {
@@ -149,11 +152,18 @@ input:focus {
   opacity: 0;
   transform: translateY(10px);
 }
+#weather #temperature {
+  position: absolute;
+  top: -10%;
+  right: 20px;
+  font-size: 4em;
+  opacity: 0.5;
+}
 #weather .icon {
   width: 90%;
   max-width: 30em;
-  margin: 16em auto;
-  margin-bottom: 0;
+  margin: 10% auto;
+  margin-bottom: 8%;
   text-align: center;
 }
 #weather p.quote {
@@ -161,8 +171,26 @@ input:focus {
   font-family: BebasNeueRegular;
   color: white;
   margin-bottom: 0;
-  font-size: 10em;
+  font-size: 8em;
   font-weight: bold;
-  float: left;
+}
+/* ----------- iPhone 6 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  #locationForm.centred {
+    left: 10%;
+  }
+  #locationForm #location {
+    width: 7em;
+  }
+  #weather {
+    margin-top: 30%;
+  }
+  #weather #temperature {
+    right: -5px;
+  }
+  #weather p.quote {
+    font-size: 6em;
+    width: 55%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,24 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- run in full screen on iphone -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Wee Weather App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>	
+<body>
 <section id="locationForm" class="centred">
     <button id="btnGo"><img src="images/search.svg" alt="Search"></button>
     <input id="location" type="text" placeholder="Belfast" autocomplete="off"/>
+    <!-- <span id="location" contenteditable="true"></span> -->
 </section>
-
 <section id="weather" class="hide">
+    <div id="temperature">0°</div>
     <div class="icon">
       <img src="images/default.svg" width="250px" id="weatherIcon"/>
     </div>
     <p id="description" class="quote"></p>
 </section>
-
 <img class="belfast" src="images/Belfast.png" width="70%">
-
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="app.js"></script>
 </body>
