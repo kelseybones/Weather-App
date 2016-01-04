@@ -23,8 +23,12 @@ function getLocation(){
 		document.getElementById("location").classList.add("error");
 	}
 	else {
+        document.getElementById("loading-animation").style.display = "block";
+        document.getElementById("weather").style.display = "none";
 		document.getElementById("location").classList.remove("error");
-		getWeather(location);
+        setTimeout(function() {
+            getWeather(location);
+        }, 1000);
 	}
 }
 function getWeather(location){
@@ -36,10 +40,11 @@ function getWeather(location){
 	ajax.send();
 	ajax.onreadystatechange = function(){
 		if (ajax.readyState == 4 && ajax.status == 200){
+            document.getElementById("loading-animation").style.display = "none";
 			json = JSON.parse(ajax.responseText);
             document.getElementById("locationForm").classList.remove("centred");
             document.getElementById("locationForm").classList.add("top-left");
-//			document.getElementById("weather").style.display = "block";
+			document.getElementById("weather").style.display = "block";
             document.getElementById("weather").classList.remove("hide");
             document.getElementById("weather").classList.add("show");
 			if (json != undefined){
@@ -83,7 +88,7 @@ function setIconAndDescription(weather, location, temperature){
             icon = "rain.svg";
             description = "It’s a bit fresh out."
             backgroundColour = "-webkit-gradient(linear, left top, left bottom, from(#1e2225), to(#026bc4))";
-            break 
+            break
         case "rain":
         case "light rain":
         case "shower rain":

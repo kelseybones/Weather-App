@@ -141,6 +141,33 @@ span:focus {
 .error {
   border: 0.15em solid rgba(204, 51, 51, 0.75) !important;
 }
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+#loading-animation {
+  display: none;
+  width: 90%;
+  max-width: 30em;
+  margin: 10% auto;
+  margin-bottom: 8%;
+  text-align: center;
+  -webkit-animation: spin /*length of animation*/ 120s /*same speed from start to end*/ linear /*continue forever!*/ infinite;
+  -moz-animation: spin 5s linear infinite;
+  animation: spin 5s linear infinite;
+}
 #weather {
   transition: all 0.3s ease-in 0.1s;
 }
